@@ -157,14 +157,12 @@ const displayBookmarkPlant = (plants) => {
     `;
     total += Number(plant.price);
   });
-  if (balanceContainer) {
     balanceContainer.innerHTML = `
       <hr class="mt-2" />
       <p class="flex items-center justify-between mt-2 px-2 text-xl">
         Total: <span id="total-balance"></span>
       </p>
     `;
-  }
   document.getElementById("total-balance").innerText = `৳${total}`;
 };
 
