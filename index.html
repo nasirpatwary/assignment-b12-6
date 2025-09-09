@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plant a Tree</title>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DaisyUI CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- FontAwesome CDN -->
+    <script
+      src="https://kit.fontawesome.com/abe88cc625.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Tailwind Config -->
+    <script src="tailwind.config.js"></script>
+  </head>
+  <body class="font-inter">
+    <header>
+      <!-- nav section start -->
+      <nav class="bg-primary text-secondary">
+        <div class="navbar shadow-sm max-w-7xl mx-auto px-4 lg:px-0">
+          <div class="navbar-start gap-2">
+            <div class="md:hidden">
+              <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+              <div>
+                <button
+                  id="open-btn"
+                  class="bg-btn text-primary px-3 py-1 rounded"
+                >
+                  <i class="fa-solid fa-bars"></i>
+                </button>
+              </div>
+              <div class="drawer-side">
+                <label
+                  for="my-drawer"
+                  aria-label="close sidebar"
+                  class="drawer-overlay"
+                ></label>
+                <div class="bg-hero text-black min-h-full w-64 p-4">
+                  <div class="flex items-center justify-between">
+                    <h3 class="text-2xl font-medium truncate">Green Earth</h3>
+                    <button
+                      id="close-btn"
+                      class="bg-btn text-primary px-3 py-1.5 rounded"
+                    >
+                      <i class="fa-solid fa-xmark"></i>
+                    </button>
+                  </div>
+                  <ul class="space-y-2 mt-4 text-base font-medium">
+                    <li>About</li>
+                    <li>Galler</li>
+                    <li>Plant a Tree</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <h3 class="text-2xl font-medium truncate">Green Earth</h3>
+          </div>
+          <div class="navbar-center">
+            <ul
+              class="menu-horizontal hidden md:flex text-base font-medium gap-6"
+            >
+              <li>About</li>
+              <li>Galler</li>
+              <li>Plant a Tree</li>
+            </ul>
+          </div>
+          <div class="navbar-end">
+            <a
+              class="px-6 py-2 bg-btn text-primary rounded-full text-base font-medium"
+              >Plant a Tree</a
+            >
+          </div>
+        </div>
+      </nav>
+      <!-- nav section end -->
+
+      <!-- hero section start -->
+      <div class="bg-hero flex items-center">
+        <div class="hidden md:flex">
+          <img src="./assets/hero-leaf1.png" alt="" />
+        </div>
+        <div class="lg:space-y-3 h-48 md:h-0 flex flex-col justify-center">
+          <h2 class="text-xl lg:text-4xl font-bold text-center md:text-start">
+            Plant a Tree, Grow a Future
+          </h2>
+          <p class="text-para text-center px-4 md:px-0">
+            Join our mission to plant 1 million trees and make the Earth greener
+            for future generations.
+          </p>
+          <div class="text-center mt-3">
+            <button
+              class="font-medium text-base bg-btn text-primary px-6 py-2 rounded-full"
+            >
+              Get Involved
+            </button>
+          </div>
+        </div>
+        <div class="hidden md:flex">
+          <img src="./assets/hero-leaf2.png" alt="" />
+        </div>
+      </div>
+      <!-- hero section end -->
+    </header>
+    <main>
+      <section class="bg-[#f0fdf4] py-10 md:py-16">
+        <!-- Choose Your Trees start -->
+        <section class="max-w-7xl mx-auto px-4 lg:px-0">
+           <!-- Open the modal using ID.showModal() method -->
+              <dialog
+                id="show_my_modal"
+                class="modal modal-bottom sm:modal-middle"
+              >
+                
+            </dialog>
+          <h2 class="text-center text-3xl font-semibold">Choose Your Trees</h2>
+          <div class="grid md:grid-cols-4 lg:grid-cols-12 gap-4 mt-8">
+            <!-- loading spinner -->
+           <div id="loading-spinner" class="col-span-full mx-auto">
+             <span class="loading loading-dots loading-xl"></span>
+           </div>
+           
+            <!-- left side categories -->
+            <div id="category-container" class="lg:col-span-2 space-y-2">
+              <p class="text-xl font-medium px-3 mt-2">Categories</p>
+            </div>
+            <!-- middle side card 3 -->
+            <div
+              id="card-plant-container"
+              class="lg:col-span-8 md:col-span-2 grid lg:grid-cols-3 gap-4"
+            >
+            </div>
+            <!-- right side bookmark -->
+            <div
+              class="lg:col-span-2 md:sticky p-2 space-y-2 top-0 left-0 overflow-auto bg-base-100 rounded-lg"
+            >
+              <h2 class="text-2xl font-medium">Your Card</h2>
+              <div id="bookmark-container" class="space-y-2"></div>
+              <div id="balance-container"></div>
+            </div>
+          </div>
+        </section>
+        <!-- Choose Your Trees end -->
+
+        <!-- About the Campaign start -->
+        <section class="max-w-[856px] mx-auto px-4 lg:px-0 mt-16">
+          <h2 class="text-center text-2xl md:text-3xl font-semibold">About the Campaign</h2>
+          <div class="md:flex items-center justify-center space-y-4 gap-4 mt-8">
+            <div>
+              <img src="./assets/about.png" alt="" />
+            </div>
+            <div class="text-para space-y-3">
+              <p class="max-w-[80ch]">
+                Green Earth is a global tree plantation initiative dedicated to
+                fighting climate change. Since our start, we’ve planted over
+                500,000 trees worldwide. By joining our campaign, you help
+                restore forests, create habitats for wildlife, and combat global
+                warming.
+              </p>
+              <ul class="md:ml-4">
+                <li class="md:list-disc">Restoration of natural habitats</li>
+                <li class="md:list-disc">Improvement of air quality</li>
+                <li class="md:list-disc">Support for local communities</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <!-- About the Campaign end -->
+      </section>
+      <!-- our impact start -->
+      <section class="bg-hero py-10 md:py-16">
+        <h2 class="text-center text-3xl font-semibold">Our Imact</h2>
+        <div
+          class="grid md:grid-cols-3 gap-4 max-w-7xl mx-auto px-4 lg:px-0 mt-6"
+        >
+          <div class="card bg-base-100 hover:bg-[#98e1ad] shadow-sm">
+            <div class="text-center space-y-2 py-6">
+              <h2 class="text-3xl font-semibold text-primary">500K+</h2>
+              <p class="text-para">Communities Involved</p>
+            </div>
+          </div>
+          <div class="card bg-base-100 hover:bg-[#98e1ad] shadow-sm">
+            <div class="text-center space-y-2 py-6">
+              <h2 class="text-3xl font-semibold text-primary">120+</h2>
+              <p class="text-para">Countries Reached</p>
+            </div>
+          </div>
+          <div class="card bg-base-100 hover:bg-[#98e1ad] shadow-sm">
+            <div class="text-center space-y-2 py-6">
+              <h2 class="text-3xl font-semibold text-primary">30+</h2>
+              <p class="text-para">Trees Planted</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- our impact end -->
+
+      <!-- plant a treey today start -->
+      <section class="bg-[#166534] py-10 md:py-16">
+        <div>
+          <h4 class="text-3xl font-semibold text-secondary text-center">
+            Plant a Tree Today
+          </h4>
+          <div
+            class="card w-full bg-primary max-w-lg mx-auto shrink-0 border shadow-2xl border-primary mt-8"
+          >
+            <div class="card-body">
+              <fieldset class="fieldset space-y-2">
+                <input
+                  type="text"
+                  class="input outline-none px-4 w-full text-base focus:outline-neutral-300"
+                  placeholder="Your Name"
+                />
+                <input
+                  type="text"
+                  class="input outline-none px-4 w-full text-base focus:outline-neutral-300"
+                  placeholder="Your Email Address"
+                />
+                <div class="relative">
+                  <select
+                    name=""
+                    id=""
+                    class="px-4 py-3 w-full text-base bg-base-200 outline-none focus:outline-neutral-300 rounded appearance-none"
+                  >
+                    <option value="" disabled selected>Number of Trees</option>
+                    <option value="1 Tree - $5">1 Tree - $5</option>
+                    <option value="5 Tree - $25">5 Tree - $25</option>
+                    <option value="10 Tree - $50">10 Tree - $50</option>
+                  </select>
+                  <i class="fa-solid fa-angle-down absolute top-4 right-4"></i>
+                </div>
+                <button
+                  class="py-2.5 bg-btn text-primary text-center rounded-full font-medium text-base"
+                >
+                  Donate Now
+                </button>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- plant a treey today end -->
+    </main>
+    <footer class="bg-[#14532d] py-4">
+      <p class="text-center text-secondary">
+        © 2025 Green Earth. All Rights Reserved.
+      </p>
+    </footer>
+
+    <!-- script.js -->
+    <script src="./script/script.js"></script>
+  </body>
+</html>
